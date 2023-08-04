@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ff00ff;
+}
+.coverart{
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  background-image: url(https://mvmaudio.olk1.com/Vertical/vertical.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.audio-player {
+  max-width: 400px;
+  height: fit-content;
+  margin: 250px auto 0; 
+  padding: 20px;
+  background: white;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: white;
+}
+.wrapper:hover {
+  color: #007bff;
+}
+.trackName, .trackDuration{
+  padding: 4px;
+  background: #ff00ff;
+}
