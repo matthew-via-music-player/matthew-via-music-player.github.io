@@ -26,7 +26,10 @@ body {
   color: white;
 }
 .wrapper:hover {
-  color: #007bff;
+  background: #ff00ff55;
+}
+.wrapper.active{
+  background: #ff00ff;
 }
 .trackName, .trackDuration{
   padding: 4px;
