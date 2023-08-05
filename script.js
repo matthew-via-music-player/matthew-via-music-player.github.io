@@ -50,13 +50,16 @@ fetch("audio_data.json")
       durationElement.classList.add("trackDuration");
       listItem.appendChild(durationElement);
 
+
       // clicking track wrapper plays the track
       listItem.addEventListener("click", () => {
         loadAndPlayTrack(item.audioUrl, index);
         playPauseBtn.classList.add("playPauseBtnPause");
+
       });
       playlistElement.appendChild(listItem);
     });
+
     // Load the first track automatically but pause audio
     if (data.length > 0) {
       loadAndPlayTrack(data[0].audioUrl, 0);
@@ -145,8 +148,7 @@ function toggleLoop(event) {
   
   if (trackIndex === currentIndex) {
     loopButton.classList.toggle("loop-track-btn-active");
-  }
-  
+  }  
 }
 
 function playPauseAudio() {
