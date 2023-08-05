@@ -55,8 +55,7 @@ body {
   transition: all 0.12s linear 0s !important;
 }
 .loop-track-btn{
-  display: none;
-  /* display: inline-block; */
+  display: inline-block;
   position: relative;
   z-index: 100;
   background-color: white;

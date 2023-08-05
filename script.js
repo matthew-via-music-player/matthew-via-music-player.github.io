@@ -113,6 +113,7 @@ function playNextTrack() {
     }
     // Loop All oFF
     else {
+      loadAndPlayTrack(tracksData[0].audioUrl, 0);
       audioElement.pause();
       return;
     }
