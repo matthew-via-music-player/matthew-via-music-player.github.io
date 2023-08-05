@@ -80,8 +80,6 @@ function loadTrack(index) {
 }
 
 
-
-
 function playAudio(audioUrl) {
 
   audioElement.src = audioUrl;  
@@ -96,14 +94,13 @@ function playAudio(audioUrl) {
 }
 
 
-
 // Function to play the next track
 function playNextTrack() {
   currentIndex++;
   const tracks = playlistElement.querySelectorAll(".wrapper");
 
   if (currentIndex >= tracks.length) {
-    // Loop single track if button active
+    // Loop Single Track (if button active)
     if (isLooping) {
       currentIndex = 0;
     } 
@@ -125,13 +122,11 @@ function playNextTrack() {
 }
 
 
+// LOOPS
 function toggleLoopAll() {
   isLoopingAll = !isLoopingAll;
   loopAllButton.classList.toggle("loop-all-btn-active", isLoopingAll);
 }
-
-
-
 
 
 function toggleLoop(event) {
