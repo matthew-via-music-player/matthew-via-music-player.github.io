@@ -1,4 +1,5 @@
 const audioElement = document.getElementById("audio");
+const playPauseBtn = document.getElementById('playPauseBtn');
 const playlistElement = document.getElementById("playlist");
 const loopAllButton = document.getElementById("loopAllButton");
 const loopButtons = document.querySelectorAll(".loop-track-btn"); 
@@ -8,8 +9,8 @@ let isLooping = false;
 let isLoopingAll = false;
 let activeLoopButton = null; 
 const trackLoopStates = new Array(tracksData.length).fill(false);
-const shouldStartPlaying = false;
 
+playPauseBtn.addEventListener("click", playPauseAudio);
 loopAllButton.addEventListener("click", toggleLoopAll);
 
 // Fetch JSON data and build the player
@@ -50,7 +51,10 @@ fetch("audio_data.json")
       listItem.appendChild(durationElement);
 
       // clicking track wrapper plays the track
-      listItem.addEventListener("click", () => loadAndPlayTrack(item.audioUrl, index));
+      listItem.addEventListener("click", () => {
+        loadAndPlayTrack(item.audioUrl, index);
+        playPauseBtn.classList.add("playPauseBtnPause");
+      });
       playlistElement.appendChild(listItem);
     });
     // Load the first track automatically but pause audio
@@ -82,7 +86,7 @@ function loadTrack(index) {
 
 function playAudio(audioUrl) {
 
-  audioElement.src = audioUrl;  
+  audioElement.src = audioUrl;
 
   // Set loop attribute based on loop state of the current track
   audioElement.loop = trackLoopStates[currentIndex];
@@ -143,4 +147,14 @@ function toggleLoop(event) {
     loopButton.classList.toggle("loop-track-btn-active");
   }
   
+}
+
+function playPauseAudio() {
+  if (audioElement.paused) {
+    audioElement.play();
+    playPauseBtn.classList.add("playPauseBtnPause");
+  } else {
+    audioElement.pause();
+    playPauseBtn.classList.remove("playPauseBtnPause");
+  }
 }
