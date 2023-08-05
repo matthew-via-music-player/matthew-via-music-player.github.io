@@ -72,12 +72,14 @@ audio{
   padding: 0 5px;
   background: #ff00ff11;
   margin: 0 0 1px;
+  transition: all 0.1s linear 0s;
 }
 .wrapper:hover {
   background: #ff00ff55;
 }
 .wrapper.active{
   background: #ff00ff;
+  transition: all 0.1s ease-in 0s;
 }
 .trackName, .trackDuration{
   padding: 4px;
@@ -100,7 +102,6 @@ audio{
   border: 1px solid transparent;
   text-shadow: none;
   box-shadow: none;
-  transition: all 0.12s linear 0s !important;
 }
 .loop-track-btn{
   display: inline-block;
@@ -108,15 +109,18 @@ audio{
   z-index: 100;
   background-color: white;
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  margin-top: 20px;
+  height: 28px;
+  width: 28px;
+  line-height: 1.8rem;
+  margin-top: 15.3px;
   margin-left: auto;
   margin-right: 30%;
+  transition: all 0.1s linear 0s;
 }
 .loop-track-btn.loop-track-btn-active{
   background-color: black;
   color: white;
+  transition: all 0.1s ease-in 0s;
 }
 
 .loop-all-btn{
@@ -128,12 +132,13 @@ audio{
   border: 1px solid #ff00ff;
   color: black;
   background: #fff;
-  transition: all 0.12s linear 0s;
+  transition: all 0.1s linear 0s;
 }
 .loop-all-btn-active{
   background-color: #111;
   border: 1px solid transparent;
   color: white;
+  transition: all 0.1s ease-in 0s;
 }
 
 
@@ -169,12 +174,3 @@ audio{
   background: white;
   color: #ff00ff;
 }
-
-/* @media (min-width: 480px){
-  .audio-player, #playlist {
-    max-width: fit-content;
-    height: fit-content;
-    margin: 0;
-    padding: 0 1px;
-  }  
-} */

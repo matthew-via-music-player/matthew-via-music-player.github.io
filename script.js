@@ -3,11 +3,10 @@ const playPauseBtn = document.getElementById('playPauseBtn');
 const playlistElement = document.getElementById("playlist");
 const loopAllButton = document.getElementById("loopAllButton");
 const loopButtons = document.querySelectorAll(".loop-track-btn"); 
-let currentIndex = 0; // 
-let tracksData = []; //
+let currentIndex = 0;
+let tracksData = [];
 let isLooping = false; 
 let isLoopingAll = false;
-let activeLoopButton = null; 
 const trackLoopStates = new Array(tracksData.length).fill(false);
 
 playPauseBtn.addEventListener("click", playPauseAudio);
@@ -35,10 +34,6 @@ fetch("audio_data.json")
       const infinityText = loopButton.textContent;
       loopButton.textContent = infinityText;
       loopButton.classList.add("loop-track-btn")
-
-      // isLooping
-      // ? loopButton.classList.add("loop-track-btn-active")
-      // : loopButton.classList.remove("loop-track-btn-active");
 
       loopButton.setAttribute("data-track-index", index);
       loopButton.addEventListener("click", toggleLoop);
@@ -151,6 +146,8 @@ function toggleLoop(event) {
     loopButton.classList.toggle("loop-track-btn-active");
   }
 }
+
+
 
 // Header Controller : Play / Hand (Pause) Icons
 function playPauseAudio() {
