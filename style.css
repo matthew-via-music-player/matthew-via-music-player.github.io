@@ -114,7 +114,7 @@ audio{
   margin-left: auto;
   margin-right: 30%;
 }
-.loop-track-btn-active{
+.loop-track-btn.loop-track-btn-active{
   background-color: black;
   color: white;
 }

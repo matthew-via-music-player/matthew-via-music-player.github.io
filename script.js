@@ -36,9 +36,9 @@ fetch("audio_data.json")
       loopButton.textContent = infinityText;
       loopButton.classList.add("loop-track-btn")
 
-      isLooping
-      ? loopButton.classList.add("loop-track-btn-active")
-      : loopButton.classList.remove("loop-track-btn-active");
+      // isLooping
+      // ? loopButton.classList.add("loop-track-btn-active")
+      // : loopButton.classList.remove("loop-track-btn-active");
 
       loopButton.setAttribute("data-track-index", index);
       loopButton.addEventListener("click", toggleLoop);
@@ -82,6 +82,7 @@ function loadTrack(index) {
       track.classList.add("active");
     } else {
       track.classList.remove("active");
+      track.children[1].classList.remove("loop-track-btn-active");
     }
   });
 }
@@ -148,9 +149,10 @@ function toggleLoop(event) {
   
   if (trackIndex === currentIndex) {
     loopButton.classList.toggle("loop-track-btn-active");
-  }  
+  }
 }
 
+// Header Controller : Play / Hand (Pause) Icons
 function playPauseAudio() {
   if (audioElement.paused) {
     audioElement.play();
