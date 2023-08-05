@@ -40,7 +40,7 @@ fetch("audio_data.json")
       : loopButton.classList.remove("loop-track-btn-active");
 
       loopButton.setAttribute("data-track-index", index);
-      // loopButton.addEventListener("click", toggleLoop);
+      loopButton.addEventListener("click", toggleLoop);
       listItem.appendChild(loopButton);
 
       // track duration mins/secs
@@ -134,34 +134,18 @@ function toggleLoopAll() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
 function toggleLoop(event) {
   event.stopPropagation();
   const loopButton = event.currentTarget;
   const trackIndex = parseInt(loopButton.getAttribute("data-track-index"));
 
-  loopButton.classList.toggle("loop-track-btn-active");
-
   trackLoopStates[trackIndex] = !trackLoopStates[trackIndex];
 
   isLooping = trackLoopStates[currentIndex];
   audioElement.loop = isLooping;
+  
+  if (trackIndex === currentIndex) {
+    loopButton.classList.toggle("loop-track-btn-active");
+  }
+  
 }
-
-loopButtons.forEach(loopButton => {
-  loopButton.addEventListener("click", toggleLoop);
-});
-
- */
