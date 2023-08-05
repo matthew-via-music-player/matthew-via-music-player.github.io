@@ -15,14 +15,17 @@ fetch("audio_data.json")
   .then(data => {
     tracksData = data; // Store the data array
     data.forEach((item, index) => {
+      // track wrapper
       const listItem = document.createElement("div");
       listItem.classList.add("wrapper");
 
+      // track title
       const titleElement = document.createElement("p");
       titleElement.textContent = item.title;
       titleElement.classList.add("trackName");
       listItem.appendChild(titleElement);
       
+      // track loop button
       const loopButton = document.createElement("button");
       loopButton.innerHTML = "&infin;";
       const infinityText = loopButton.textContent;
@@ -37,15 +40,17 @@ fetch("audio_data.json")
       loopButton.addEventListener("click", toggleLoop);
       listItem.appendChild(loopButton);
 
+      // track duration mins/secs
       const durationElement = document.createElement("p");
       durationElement.textContent = item.trackDuration;
       durationElement.classList.add("trackDuration");
       listItem.appendChild(durationElement);
 
+      // clicking track wrapper plays the track
       listItem.addEventListener("click", () => loadAndPlayTrack(item.audioUrl, index));
       playlistElement.appendChild(listItem);
     });
-    // Load the first track automatically
+    // Load the first track automatically but pause audio
     if (data.length > 0) {
       loadAndPlayTrack(data[0].audioUrl, 0);
       audioElement.pause();
@@ -54,17 +59,10 @@ fetch("audio_data.json")
   .catch(error => console.error("Error fetching JSON data:", error));
 
 
-
-
-
-
-
-
 function loadAndPlayTrack(audioUrl, index) {
   loadTrack(index);
   playAudio(audioUrl);
 }
-
 
 function loadTrack(index) {
   currentIndex = index;
@@ -77,6 +75,8 @@ function loadTrack(index) {
     }
   });
 }
+
+
 
 
 function playAudio(audioUrl) {
