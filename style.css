@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   background: #ff00ff;
@@ -77,14 +80,12 @@ body {
   padding: 8px 0;
   width: 100%;
   text-align: center;
-  background-color: #111;
-  color: white;
+  /* background-color: #ff00ff; */
+  border: 1px solid #ff00ff;
+  color: black;
 }
 .loop-all-btn-active{
-  background-color: #ff00ff;
+  background-color: #111;
+  border: 1px solid transparent;
   color: white;
 }
-
-/* .loop-active{
-  for js?
-} */
