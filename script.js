@@ -48,6 +48,7 @@ fetch("audio_data.json")
     // Load the first track automatically
     if (data.length > 0) {
       loadAndPlayTrack(data[0].audioUrl, 0);
+      audioElement.pause();
     }
   })
   .catch(error => console.error("Error fetching JSON data:", error));
