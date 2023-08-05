@@ -151,7 +151,7 @@ audio{
 .info img{
   width: 100px;
   height: 100px;
-  margin-right: -1px;
+  padding: 8px;
 }
 .meta{
   display: flex;
@@ -159,10 +159,11 @@ audio{
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin-left: 10px;
 }
 .meta p{
-  margin: 1px;
+  margin: 0;
+  margin-bottom: 1px;
+  margin-left: 8px;
   padding: 4px;
   font-size: 16px;
   background: white;
