@@ -145,26 +145,26 @@ audio{
   padding: 0px;
   margin: 0px;
   height: 100%;
-  background: #111;
+  background: #ff00ff;
   margin-top: 0px;
 }
 .info img{
   width: 100px;
   height: 100px;
-  margin-left: -1px;
+  margin-right: -1px;
 }
 .meta{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
-  margin-right: 5px;
+  margin-left: 10px;
 }
 .meta p{
   margin: 1px;
   padding: 4px;
-  font-size: 14px;
+  font-size: 16px;
   background: white;
   color: #ff00ff;
 }
