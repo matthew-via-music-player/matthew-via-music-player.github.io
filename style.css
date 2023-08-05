@@ -3,30 +3,50 @@
 }
 body {
   font-family: Arial, sans-serif;
-  background: #ff00ff;
+  background-image: url(https://mvmaudio.olk1.com/Vertical/vertical.jpg);
+  margin: 0;
 }
-.coverart{
+.container{
+  height: 100vh;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  height: 80vh;
-  background-image: url(https://mvmaudio.olk1.com/Vertical/vertical.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 .audio-player {
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
   height: fit-content;
-  margin: 250px auto 0; 
-  padding: 20px;
-  background: white;
+  margin: 0;
+  padding: 0;
+  background: #fff;
 }
 
+.cover-art{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  filter: brightness(1.1);
+  background-image: url(https://mvmaudio.olk1.com/Vertical/vertical.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 95px;
+}
+
+audio{
+  width: 100%;
+}
+
+/* JS / PLAYER */
 .wrapper {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   color: white;
+  padding: 0 5px;
+  background: #ff00ff11;
+  margin: 0 0 1px;
 }
 .wrapper:hover {
   background: #ff00ff55;
@@ -76,16 +96,59 @@ body {
 
 .loop-all-btn{
   display: block;
-  margin-top: 10px;
+  margin: 0 0 1px;
   padding: 8px 0;
   width: 100%;
   text-align: center;
-  /* background-color: #ff00ff; */
   border: 1px solid #ff00ff;
   color: black;
+  transition: all 0.12s linear 0s;
 }
 .loop-all-btn-active{
   background-color: #111;
   border: 1px solid transparent;
   color: white;
+}
+
+
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background: #111;
+  margin-top: 0px;
+}
+.info img{
+  width: 100px;
+  height: 100px;
+  margin-left: -1px;
+}
+.meta{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  margin-right: 5px;
+}
+.meta p{
+  margin: 1px;
+  padding: 4px;
+  font-size: 14px;
+  background: white;
+  color: #ff00ff;
+}
+
+@media (min-width: 480px){
+  .audio-player {
+    max-width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0 1px;
+    background: white;
+  }  
 }
