@@ -4,3 +4,9 @@
 `© Matthew via Music. All Rights Reserved.`
 
 ![preview](preview.png)
+
+#### Features
+- Loop All
+- Loop Track
+- Custom Transport Controls (Play/Pause)
+- Click Track Selective Play
