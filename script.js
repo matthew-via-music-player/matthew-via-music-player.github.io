@@ -5,9 +5,12 @@ const loopButtons = document.querySelectorAll(".loop-track-btn");
 let currentIndex = 0; // 
 let tracksData = []; //
 let isLooping = false; 
+let isLoopingAll = false;
 let activeLoopButton = null; 
 const trackLoopStates = new Array(tracksData.length).fill(false);
 const shouldStartPlaying = false;
+
+loopAllButton.addEventListener("click", toggleLoopAll);
 
 // Fetch JSON data and build the player
 fetch("audio_data.json")
@@ -37,7 +40,7 @@ fetch("audio_data.json")
       : loopButton.classList.remove("loop-track-btn-active");
 
       loopButton.setAttribute("data-track-index", index);
-      loopButton.addEventListener("click", toggleLoop);
+      // loopButton.addEventListener("click", toggleLoop);
       listItem.appendChild(loopButton);
 
       // track duration mins/secs
@@ -100,21 +103,31 @@ function playNextTrack() {
   const tracks = playlistElement.querySelectorAll(".wrapper");
 
   if (currentIndex >= tracks.length) {
-    // If the last track has finished playing
+    // Loop single track if button active
     if (isLooping) {
       currentIndex = 0;
-    } else {
-      // Stop playback when all tracks have finished (without Loop All)
+    } 
+    // Loop All ON
+    else if(isLoopingAll) {
+      loadAndPlayTrack(tracksData[0].audioUrl, 0);
+    }
+    // Loop All oFF
+    else {
       audioElement.pause();
       return;
     }
   }
   
+  // Move to next track unless current track is last track and NOT loop All ON
   const nextTrack = tracksData[currentIndex];
   loadAndPlayTrack(nextTrack.audioUrl, currentIndex);
 }
 
 
+function toggleLoopAll() {
+  isLoopingAll = !isLoopingAll;
+  loopAllButton.classList.toggle("loop-all-btn-active", isLoopingAll);
+}
 
 
 
@@ -131,47 +144,23 @@ function playNextTrack() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 
 
 function toggleLoop(event) {
-  event.stopPropagation(); // Prevent event propagation to parent elements
+  event.stopPropagation();
   const loopButton = event.currentTarget;
   const trackIndex = parseInt(loopButton.getAttribute("data-track-index"));
 
   loopButton.classList.toggle("loop-track-btn-active");
 
-  // Toggle the loop state for the corresponding track
   trackLoopStates[trackIndex] = !trackLoopStates[trackIndex];
 
-  // Set the loop attribute based on the loop state of the current track
   isLooping = trackLoopStates[currentIndex];
   audioElement.loop = isLooping;
 }
 
-
-
-// Add event listener to individual loop buttons
 loopButtons.forEach(loopButton => {
   loopButton.addEventListener("click", toggleLoop);
 });
 
+ */
